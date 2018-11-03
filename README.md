@@ -26,8 +26,8 @@ How to use it?
             IRepository su = new SqlRepository();
             SqlConnectionStringBuilder connBuilder = new SqlConnectionStringBuilder()
             {
-                DataSource = "SHAWN\\SQLEXPRESS",
-                InitialCatalog = "Dao",
+                DataSource = "sql instance",
+                InitialCatalog = "database name",
                 IntegratedSecurity = true
             };
             var todos = su.Get<TodoModel>(
