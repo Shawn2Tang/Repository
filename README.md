@@ -4,9 +4,10 @@ Repository is a C# light weight generic data access layer which support extensio
 How to use it?
 
 1 Create Table Todo in sql server
+
     CREATE TABLE Todo(
         [TodoId] [int] IDENTITY(1,1) NOT NULL,
-        [Title] [varchar](256) NULL
+        [Title] [varchar] (256) NULL
     )
 
 2 Create class TodoModel
