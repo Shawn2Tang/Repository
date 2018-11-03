@@ -8,8 +8,8 @@ namespace Tao.Repository
 {
     public interface IDataReaderParser
     {
-        List<T> Parse<T>(IDataReader reader) where T: new();
+        List<T> Parse<T>(IDataReader reader);
 
-        Task<List<T>> ParseAsync<T>(DbDataReader reader, CancellationToken cancellationToken) where T : new();
+        Task<List<T>> ParseAsync<T>(DbDataReader reader, CancellationToken cancellationToken);
     }
 }

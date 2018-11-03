@@ -9,7 +9,6 @@ namespace Tao.Repository
     public class PrimitiveParser: IDataReaderParser
     {
         public List<T> Parse<T>(IDataReader reader)
-            where T : new()
         {
             List<T> result = new List<T>();
             if (reader != null)
@@ -23,7 +22,6 @@ namespace Tao.Repository
         }
 
         public async Task<List<T>> ParseAsync<T>(DbDataReader reader, CancellationToken cancellationToken)
-            where T : new()
         {
             List<T> result = new List<T>();
             if (reader != null)

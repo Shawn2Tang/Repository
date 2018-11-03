@@ -24,9 +24,8 @@ namespace Tao.Repository
             string sql,
             IList<IDataParameter> dataParameters = null,
             int commandTimeout = 10000,
-            CommandBehavior commandBehavior = CommandBehavior.CloseConnection)
-            where T : new();
-
+            CommandBehavior commandBehavior = CommandBehavior.CloseConnection);
+        
         /// <summary>
         /// Retrieve data synchronously.
         /// Custom converter is used to convert to correct generic type.
@@ -63,7 +62,6 @@ namespace Tao.Repository
             string sql,
             CancellationToken cancellationToken,
             IList<IDataParameter> dataParameters = null,
-            CommandBehavior commandBehavior = CommandBehavior.CloseConnection)
-            where T : new();
+            CommandBehavior commandBehavior = CommandBehavior.CloseConnection);
     }
 }

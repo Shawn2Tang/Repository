@@ -13,7 +13,6 @@ namespace Tao.Repository
     public class ReflectiveParser: IDataReaderParser
     {
         public List<T> Parse<T>(IDataReader reader)
-            where T : new()
         {
             List<T> result = new List<T>();
 
@@ -29,7 +28,6 @@ namespace Tao.Repository
         }
 
         public async Task<List<T>> ParseAsync<T>(DbDataReader reader, CancellationToken cancellationToken)
-            where T : new()
         {
             List<T> result = new List<T>();
 
@@ -45,9 +43,8 @@ namespace Tao.Repository
         }
 
         private void BuildResult<T>(IDataReader reader, List<T> result)
-            where T : new()
         {
-            T t = new T();
+            T t = (T)Activator.CreateInstance(typeof(T), null);
             Hashtable cacheProperties = GetProperties<T>();
             for (int idx = 0; idx < reader.FieldCount; idx++)
             {

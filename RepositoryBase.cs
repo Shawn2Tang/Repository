@@ -39,7 +39,6 @@ namespace Tao.Repository
             IList<IDataParameter> dataParameters = null,
             int commandTimeout = 10000,
             CommandBehavior commandBehavior = CommandBehavior.CloseConnection)
-            where T: new()
         {
             List<T> result = new List<T>();
 
@@ -95,7 +94,6 @@ namespace Tao.Repository
             CancellationToken cancellationToken,
             IList<IDataParameter> dataParameters = null,
             CommandBehavior commandBehavior = CommandBehavior.CloseConnection)
-            where T: new()
         {
             var result = new List<T>();
             await connection.OpenAsync();
