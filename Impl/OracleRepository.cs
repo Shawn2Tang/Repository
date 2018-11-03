@@ -49,22 +49,6 @@ namespace Tao.Repository.Impl
             }
         }
 
-        public IEnumerable<IDataRecord> GetDatRecords(
-            string dbConnString,
-            string sql,
-            IList<IDataParameter> dataParameters = null,
-            int commandTimeout = 10000,
-            CommandBehavior commandBehavior = CommandBehavior.CloseConnection)
-        {
-            using (OracleConnection conn = new OracleConnection(dbConnString))
-            {
-                using (OracleCommand command = new OracleCommand(sql, conn))
-                {
-                    return base.GetDataRecords(conn, command, dataParameters, commandTimeout, commandBehavior);
-                }
-            }
-        }
-
         public override async Task<IEnumerable<T>> GetAsync<T>(
             string dbConnString,
             string sql,

@@ -62,22 +62,6 @@ namespace Tao.Repository
             return result;
         }
 
-        public IEnumerable<IDataRecord> GetDataRecords(
-            IDbConnection connection,
-            IDbCommand command,
-            IList<IDataParameter> dataParameters = null,
-            int commandTimeout = 10000,
-            CommandBehavior commandBehavior = CommandBehavior.CloseConnection)
-        {
-            return Get<IDataRecord>(
-                connection,
-                command, 
-                (IDataRecord rdr) => { return rdr; },
-                dataParameters,
-                commandTimeout,
-                commandBehavior);
-        }
-
         private IEnumerable<T> Get<T>(
             IDbConnection connection,
             IDbCommand command,
