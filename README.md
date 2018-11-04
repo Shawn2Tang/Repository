@@ -55,10 +55,11 @@ How to use it?
 
 How to extend it?
 
+For example, implement MySql repository
+
 1 Use Package Manager install mysql assembly: Install-Package MySql.Data
 
 2 Create repository class which inherite from AbstractRepository and implement all abstract method in abstract class.
-  For example, implement MySql repository as follows:
     
     public class MySqlRepository : AbstractRepository, IRepository
     {
