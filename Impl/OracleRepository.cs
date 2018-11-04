@@ -23,9 +23,9 @@ namespace Tao.Repository.Impl
             int commandTimeout = 10000,
             CommandBehavior commandBehavior = CommandBehavior.CloseConnection)
         {
-            using (OracleConnection conn = new OracleConnection(dbConnString))
+            using (var conn = new OracleConnection(dbConnString))
             {
-                using (OracleCommand cmd = new OracleCommand(sql, conn))
+                using (var cmd = new OracleCommand(sql, conn))
                 {
                     return base.Get<T>(conn, cmd, dataParameters, commandTimeout, commandBehavior);
                 }
@@ -40,9 +40,9 @@ namespace Tao.Repository.Impl
             int commandTimeout = 10000,
             CommandBehavior commandBehavior = CommandBehavior.CloseConnection)
         {
-            using (OracleConnection conn = new OracleConnection(dbConnString))
+            using (var conn = new OracleConnection(dbConnString))
             {
-                using (OracleCommand cmd = new OracleCommand(sql, conn))
+                using (var cmd = new OracleCommand(sql, conn))
                 {
                     return base.Get<T>(conn, cmd, projector, dataParameters, commandTimeout, commandBehavior);
                 }
@@ -56,9 +56,9 @@ namespace Tao.Repository.Impl
             IList<IDataParameter> dataParameters = null,
             CommandBehavior commandBehavior = CommandBehavior.CloseConnection)
         {
-            using (OracleConnection conn = new OracleConnection(dbConnString))
+            using (var conn = new OracleConnection(dbConnString))
             {
-                using (OracleCommand command = new OracleCommand(sql, conn))
+                using (var command = new OracleCommand(sql, conn))
                 {
                     return await base.GetAsync<T>(conn, command, cancellationToken, dataParameters, commandBehavior);
                 }
