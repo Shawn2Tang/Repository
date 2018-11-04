@@ -16,10 +16,7 @@ namespace Tao.Repository
             {
                 while (reader.Read())
                 {
-                    var item = reader[0] == null || reader[0] == DBNull.Value
-                        ? default(T)
-                        : (T)reader[0];
-
+                    var item = Parse<T>(reader[0]);
                     result.Add(item);
                 }
             }
@@ -33,11 +30,19 @@ namespace Tao.Repository
             {
                 while (await reader.ReadAsync(cancellationToken))
                 {
-                    result.Add((T)reader[0]);
+                    var item = Parse<T>(reader[0]);
+                    result.Add(item);
                 }
             }
 
             return result;
+        }
+
+        private T Parse<T>(object src)
+        {
+            return src == null || src == DBNull.Value
+                        ? default(T)
+                        : (T)src;
         }
     }
 }
