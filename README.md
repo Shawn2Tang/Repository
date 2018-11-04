@@ -53,7 +53,7 @@ How to use it?
         }
     }
     
-    How to extense it?
+    How to extend it?
     
     Create repository class which inherite from AbstractRepository and implement all abstract method in abstract class.
     For example, implement MySql repository as follows:
