@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
 using System.Threading;
@@ -15,7 +16,11 @@ namespace Tao.Repository
             {
                 while (reader.Read())
                 {
-                    result.Add((T)reader[0]);
+                    var item = reader[0] == null || reader[0] == DBNull.Value
+                        ? default(T)
+                        : (T)reader[0];
+
+                    result.Add(item);
                 }
             }
             return result;
