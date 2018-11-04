@@ -51,7 +51,9 @@ namespace Tao.Repository
                 PropertyInfo info = (PropertyInfo)cacheProperties[reader.GetName(idx).ToUpper()];
                 if ((info != null) && info.CanWrite)
                 {
-                    info.SetValue(t, reader.GetValue(idx), null);
+                    var val = reader.GetValue(idx) == null || reader.GetValue(idx) == DBNull.Value
+                        ? null : reader.GetValue(idx);
+                    info.SetValue(t, val, null);
                 }
             }
             result.Add(t);

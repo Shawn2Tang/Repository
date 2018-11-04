@@ -38,7 +38,7 @@ namespace Tao.Repository
             return result;
         }
 
-        private T Parse<T>(object src)
+        public T Parse<T>(object src)
         {
             return src == null || src == DBNull.Value
                         ? default(T)
