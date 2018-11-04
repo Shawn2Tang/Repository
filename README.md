@@ -52,3 +52,41 @@ How to use it?
             }
         }
     }
+    
+    How to extense it?
+    
+    Create repository class which inherite from AbstractRepository and implement all abstract method in abstract class.
+    For example, implement MySql repository as follows:
+    
+    public class MySqlRepository : AbstractRepository, IRepository
+    {
+        public override List<T> Get<T>(
+            string dbConnString, 
+            string sql, IList<IDataParameter> dataParameters = null, 
+            int commandTimeout = 10000, 
+            CommandBehavior commandBehavior = CommandBehavior.CloseConnection)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override IEnumerable<T> Get<T>(
+            string dbConnString, 
+            string sql, 
+            Func<IDataRecord, T> projector, 
+            IList<IDataParameter> dataParameters = null, 
+            int commandTimeout = 10000, 
+            CommandBehavior commandBehavior = CommandBehavior.CloseConnection)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override Task<IEnumerable<T>> GetAsync<T>(
+            string dbConnString, 
+            string sql, 
+            CancellationToken cancellationToken, 
+            IList<IDataParameter> dataParameters = null, 
+            CommandBehavior commandBehavior = CommandBehavior.CloseConnection)
+        {
+            throw new NotImplementedException();
+        }
+    }
