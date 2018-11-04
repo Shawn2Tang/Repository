@@ -1,6 +1,7 @@
 # Brief Introduct
 Repository is a C# light weight generic data access layer which support extension.
 
+
 # Usage
 
 1 Create Table Todo in sql server
@@ -53,6 +54,7 @@ Repository is a C# light weight generic data access layer which support extensio
 			}
 		}
 	}
+
 
 # Extend
 
