@@ -67,7 +67,13 @@ How to use it?
             int commandTimeout = 10000, 
             CommandBehavior commandBehavior = CommandBehavior.CloseConnection)
         {
-            throw new NotImplementedException();
+            using (var conn = new MySqlConnection(dbConnString))
+            {
+                using (var cmd = new MySqlCommand(sql, conn))
+                {
+                    return base.Get<T>(conn, cmd, dataParameters, commandTimeout, commandBehavior);
+                }
+            }
         }
 
         public override IEnumerable<T> Get<T>(
@@ -78,16 +84,28 @@ How to use it?
             int commandTimeout = 10000, 
             CommandBehavior commandBehavior = CommandBehavior.CloseConnection)
         {
-            throw new NotImplementedException();
+            using (var conn = new MySqlConnection(dbConnString))
+            {
+                using (var cmd = new MySqlCommand(sql, conn))
+                {
+                    return base.Get<T>(conn, cmd, projector, dataParameters, commandTimeout, commandBehavior);
+                }
+            }
         }
 
-        public override Task<IEnumerable<T>> GetAsync<T>(
+        public override async Task<IEnumerable<T>> GetAsync<T>(
             string dbConnString, 
             string sql, 
             CancellationToken cancellationToken, 
             IList<IDataParameter> dataParameters = null, 
             CommandBehavior commandBehavior = CommandBehavior.CloseConnection)
         {
-            throw new NotImplementedException();
+            using (var conn = new MySqlConnection(dbConnString))
+            {
+                using (var command = new MySqlCommand(sql, conn))
+                {
+                    return await base.GetAsync<T>(conn, command, cancellationToken, dataParameters, commandBehavior);
+                }
+            }
         }
     }
