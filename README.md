@@ -5,6 +5,7 @@ Repository is a C# light weight generic data access layer which support extensio
 # Usage
 
 1 Create Table Todo in sql server
+
 	CREATE TABLE Todo(
 		[TodoId] [int] IDENTITY(1,1) NOT NULL,
 		[Title] [varchar] (256) NULL,
@@ -13,6 +14,7 @@ Repository is a C# light weight generic data access layer which support extensio
 	)
 
 2 Create class TodoModel
+
 	public class TodoModel
 	{
 		public int? TodoId { get; set; }
@@ -22,6 +24,7 @@ Repository is a C# light weight generic data access layer which support extensio
 	}
 
 3 Retrieve data from db by IRepository
+
 	public class TodoBL
 	{
 		public void Retrieve()
